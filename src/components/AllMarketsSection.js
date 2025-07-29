@@ -11,75 +11,61 @@ const markets = [
     id: 1,
     rank: "1° Lugar",
     name: "Mercado da Boa Vista",
-    address: "R. do Santa Cruz S/N",
-    image: "/placeholder.svg?height=120&width=200",
+    address: "R. da Santa Cruz, S/N",
+    image: "/Boa_vista.png",
   },
   {
     id: 2,
     rank: "2° Lugar",
     name: "Mercado de São José",
     address: "Rua Almirante Tamandaré 2436",
-    image: "/placeholder.svg?height=120&width=200",
+    image: "/Sao_jose.png",
   },
   {
     id: 3,
     rank: "3° Lugar",
     name: "Mercado da Encruzilhada",
     address: "R. Dr. José Maria, 2-200",
-    image: "/placeholder.svg?height=120&width=200",
+    image: "/Encruzilhada.png",
   },
   {
     id: 4,
     rank: "4° Lugar",
     name: "Mercado de Santo Amaro",
-    address: "Av. Cruz Cabugá, 1333",
-    image: "/placeholder.svg?height=120&width=200",
+    address: "Av. Cruz Cabugá, 1933",
+    image: "/Santo_amaro.png",
   },
   {
     id: 5,
     rank: "5° Lugar",
-    name: "Mercado da Torre",
-    address: "R. Padre Lemos, 45",
-    image: "/placeholder.svg?height=120&width=200",
+    name: "Mercado de Casa Amarela",
+    address: "R. Padre Lemos, 94",
+    image: "/Casa_amarela.png",
   },
   {
     id: 6,
     rank: "6° Lugar",
-    name: "Mercado de Casa Amarela",
-    address: "Av. Norte Miguel Arraes, 2930",
-    image: "/placeholder.svg?height=120&width=200",
+    name: "Mercado da Madalena",
+    address: "R. Real da Torre, 521",
+    image: "/Madalena.png",
   },
   {
     id: 7,
     rank: "7° Lugar",
-    name: "Mercado de Afogados",
-    address: "R. Dois Irmãos, 92",
-    image: "/placeholder.svg?height=120&width=200",
+    name: "Mercado do Cordeiro",
+    address: "Av. Gen. San Martin, S/n",
+    image: "/Cordeiro.png",
   },
   {
     id: 8,
     rank: "8° Lugar",
-    name: "Mercado do Cordeiro",
-    address: "Av. Abdias de Carvalho, 567",
-    image: "/placeholder.svg?height=120&width=200",
-  },
-  {
-    id: 9,
-    rank: "9° Lugar",
-    name: "Mercado de Água Fria",
-    address: "R. Real da Torre, 123",
-    image: "/placeholder.svg?height=120&width=200",
-  },
-  {
-    id: 10,
-    rank: "10° Lugar",
-    name: "Mercado de Peixinhos",
-    address: "Av. Cruz Cabugá, 890",
-    image: "/placeholder.svg?height=120&width=200",
+    name: "Mercado de Afogados",
+    address: "Rua Nicolau Pereira",
+    image: "/Afogados.png",
   },
 ]
 
-export function MarketCarousel() {
+export function AllMarketsSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const marketsPerSlide = 5
   const totalSlides = Math.ceil(markets.length / marketsPerSlide)
@@ -99,7 +85,7 @@ export function MarketCarousel() {
   }
 
   return (
-    <div className="bg-blue-600 rounded-lg p-6">
+    <div className="bg-[#3154A5] rounded-lg p-6">
       <div className="flex items-center justify-between mb-4">
         <Button
           variant="ghost"
@@ -134,13 +120,13 @@ export function MarketCarousel() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 min-h-[200px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 min-h-[200px]">
         {getCurrentMarkets().map((market) => (
           <Card key={market.id} className="bg-white transition-transform hover:scale-105">
             <CardContent className="p-0">
               <Image
-                src={market.image || "/placeholder.svg"}
-                alt={market.name}
+                src={market.image}
+                alt={`Imagem de ${market.name}`}
                 width={200}
                 height={120}
                 className="w-full h-24 object-cover rounded-t-lg"
@@ -157,7 +143,7 @@ export function MarketCarousel() {
 
       <div className="text-center mt-4">
         <p className="text-blue-100 text-sm">
-          Mostrando {currentSlide * marketsPerSlide + 1}-
+          Mostrando {currentSlide * marketsPerSlide + 1}–
           {Math.min((currentSlide + 1) * marketsPerSlide, markets.length)} de {markets.length} mercados
         </p>
       </div>
