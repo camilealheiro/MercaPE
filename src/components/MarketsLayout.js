@@ -266,7 +266,7 @@ export function MarketPageTemplate({ marketData }) {
                         <span className="font-medium">E muito mais! </span>
                         {/* <span className="font-bold [font-family:'Unbouded-Bold', sans-serif]">Confira aqui </span> */}
                         <a
-                            href="/pdfs/mercado-cordeiro.pdf" // caminho para seu PDF
+                            href="/pdfs/cartilha_cordeiro.pdf" // caminho para seu PDF
                             download
                             className="font-bold [font-family:'Unbouded-Bold', sans-serif] text-blue-700 underline"
                             >
