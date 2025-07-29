@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { MarketCarousel } from "../../components/maket-carousel"
+import { MarketCarousel } from "../../components/market-carousel"
 
 export default function HomePage() {
   return (
