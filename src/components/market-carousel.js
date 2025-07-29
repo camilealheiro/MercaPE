@@ -2,10 +2,12 @@
 import React from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
+import Link from "next/link"
 
 const markets = [
   {
     id: 1,
+    link: "/mercado-boavista",
     rank: "1° Lugar",
     name: "Mercado da Boa Vista",
     address: "R. da Santa Cruz, S/N",
@@ -13,6 +15,7 @@ const markets = [
   },
   {
     id: 2,
+    link: "/mercado-saojose",
     rank: "2° Lugar",
     name: "Mercado de São José",
     address: "Rua Almirante Tamandaré 2436",
@@ -20,6 +23,7 @@ const markets = [
   },
   {
     id: 3,
+    link: "/mercado-encruzilhada",
     rank: "3° Lugar",
     name: "Mercado da Encruzilhada",
     address: "R. Dr. José Maria, 2-200",
@@ -27,6 +31,7 @@ const markets = [
   },
   {
     id: 4,
+    link: "/mercado-santoamaro",
     rank: "4° Lugar",
     name: "Mercado de Santo Amaro",
     address: "Av. Cruz Cabugá, 1933",
@@ -34,6 +39,7 @@ const markets = [
   },
   {
     id: 5,
+    link: "/mercado-casaamarela",
     rank: "5° Lugar",
     name: "Mercado de Casa Amarela",
     address: "R. Padre Lemos, 94",
@@ -41,6 +47,7 @@ const markets = [
   },
   {
     id: 6,
+    link: "/mercado-madalena",
     rank: "6° Lugar",
     name: "Mercado da Madalena",
     address: "R. Real da Torre, 521",
@@ -48,6 +55,7 @@ const markets = [
   },
   {
     id: 7,
+    link: "/mercado-cordeiro",
     rank: "7° Lugar",
     name: "Mercado do Cordeiro",
     address: "Av. Gen. San Martin, S/n",
@@ -55,6 +63,7 @@ const markets = [
   },
   {
     id: 8,
+    link: "/mercado-afogados",
     rank: "8° Lugar",
     name: "Mercado de Afogados",
     address: "Rua Nicolau Pereira",
@@ -97,18 +106,20 @@ export default function MarketCarousel() {
           <div ref={sliderRef} className="keen-slider">
             {markets.map((market) => (
               <div key={market.id} className="keen-slider__slide">
-                <div className="bg-white rounded-2xl shadow-md overflow-hidden text-gray-800">
-                  <img
-                    src={market.image}
-                    alt={market.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <span className="text-sm font-bold text-[#3154A5]">{market.rank}</span>
-                    <h3 className="text-[#3154A5] font-semibold">{market.name}</h3>
-                    <p className="text-sm text-[#3154A5]">{market.address}</p>
+                <Link href={market.link}>
+                  <div className="bg-white rounded-2xl shadow-md overflow-hidden text-gray-800 hover:scale-[1.02] transition-transform duration-200">
+                    <img
+                      src={market.image}
+                      alt={market.name}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <span className="text-sm font-bold text-[#3154A5]">{market.rank}</span>
+                      <h3 className="text-[#3154A5] font-semibold">{market.name}</h3>
+                      <p className="text-sm text-[#3154A5]">{market.address}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

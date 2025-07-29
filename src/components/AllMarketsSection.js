@@ -5,10 +5,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+
 
 const markets = [
   {
     id: 1,
+    link: "/mercado-boavista",
     rank: "1° Lugar",
     name: "Mercado da Boa Vista",
     address: "R. da Santa Cruz, S/N",
@@ -16,6 +19,7 @@ const markets = [
   },
   {
     id: 2,
+    link: "/mercado-saojose",
     rank: "2° Lugar",
     name: "Mercado de São José",
     address: "Rua Almirante Tamandaré 2436",
@@ -23,6 +27,7 @@ const markets = [
   },
   {
     id: 3,
+    link: "/mercado-encruzilhada",
     rank: "3° Lugar",
     name: "Mercado da Encruzilhada",
     address: "R. Dr. José Maria, 2-200",
@@ -30,6 +35,7 @@ const markets = [
   },
   {
     id: 4,
+    link: "/mercado-santoamaro",
     rank: "4° Lugar",
     name: "Mercado de Santo Amaro",
     address: "Av. Cruz Cabugá, 1933",
@@ -37,6 +43,7 @@ const markets = [
   },
   {
     id: 5,
+    link: "/mercado-casaamarela",
     rank: "5° Lugar",
     name: "Mercado de Casa Amarela",
     address: "R. Padre Lemos, 94",
@@ -44,6 +51,7 @@ const markets = [
   },
   {
     id: 6,
+    link: "/mercado-madalena",
     rank: "6° Lugar",
     name: "Mercado da Madalena",
     address: "R. Real da Torre, 521",
@@ -51,6 +59,7 @@ const markets = [
   },
   {
     id: 7,
+    link: "/mercado-cordeiro",
     rank: "7° Lugar",
     name: "Mercado do Cordeiro",
     address: "Av. Gen. San Martin, S/n",
@@ -58,6 +67,7 @@ const markets = [
   },
   {
     id: 8,
+    link: "/mercado-afogados",
     rank: "8° Lugar",
     name: "Mercado de Afogados",
     address: "Rua Nicolau Pereira",
@@ -122,22 +132,27 @@ export function AllMarketsSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 min-h-[200px]">
         {getCurrentMarkets().map((market) => (
-          <Card key={market.id} className="bg-white transition-transform hover:scale-105">
-            <CardContent className="p-0">
-              <Image
-                src={market.image}
-                alt={`Imagem de ${market.name}`}
-                width={200}
-                height={120}
-                className="w-full h-24 object-cover rounded-t-lg"
-              />
-              <div className="p-3">
-                <h4 className="font-bold text-blue-600 text-sm">{market.rank}</h4>
-                <p className="font-semibold text-xs">{market.name}</p>
-                <p className="text-xs text-gray-600">{market.address}</p>
-              </div>
-            </CardContent>
-          </Card>
+          <Link key={market.id} href={market.link} className="block">
+            {/* <div> */}
+              <Card className="bg-white transition-transform hover:scale-105 cursor-pointer">
+                <CardContent className="p-0">
+                  <Image
+                    src={market.image || "/placeholder.svg"}
+                    alt={`Imagem de ${market.name}`}
+                    width={200}
+                    height={120}
+                    className="w-full h-24 object-cover rounded-t-lg"
+                  />
+                  <div className="p-3">
+                    <h4 className="font-bold text-blue-600 text-sm">{market.rank}</h4>
+                    <p className="font-semibold text-xs">{market.name}</p>
+                    <p className="text-xs text-gray-600">{market.address}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            {/* </div> */}
+          </Link>
+          
         ))}
       </div>
 
