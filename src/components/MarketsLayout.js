@@ -7,6 +7,7 @@ import { Header } from "./Header"
 import { Footer } from "./Footer"
 import { Unbounded } from 'next/font/google';
 import { useEffect, useState } from "react";
+import { MapSection } from "./MapSection"
 
 const unbounded = Unbounded({
     subsets: ['latin'],
@@ -164,18 +165,13 @@ export function MarketPageTemplate({ marketData }) {
             {/* Tourism Section */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="flex flex-col space-y-4 justify-center">
-                    {[
-                    `${marketData.name}`,
-                    `Feira do ${marketData.name.replace("Mercado do ", "").replace("Mercado da ", "").replace("Mercado de ", "")}`,
-                    `Parque de Exposições do ${marketData.name.replace("Mercado do ", "").replace("Mercado da ", "").replace("Mercado de ", "")}`,
-                    "Compras Artesão Sustentáveis",
-                    `Matriz do ${marketData.name.replace("Mercado do ", "").replace("Mercado da ", "").replace("Mercado de ", "")}`,
-                    ].map((item, index) => (
-                    <div key={index} className="flex items-center space-x-3">
+                
+                <div className="flex flex-col space-y-4 justify-center">
+                    {marketData.spots?.map((item, index) => (
+                        <div key={index} className="flex items-center space-x-3">
                         <ArrowRight className="h-5 w-5 text-[#3154A5]" />
                         <span className="text-[#3154A5]">{item}</span>
-                    </div>
+                        </div>
                     ))}
                 </div>
 
@@ -197,16 +193,19 @@ export function MarketPageTemplate({ marketData }) {
                     <br />
                     local?
                     </h2>
-                    <p className="text-[#3154A5]">{marketData.mapDescription}</p>
+                    <p className="text-[#3154A5]">"Veja no nosso mapa cada ponto turístico da nossa recomendação de roteiro. Assim você pode visitar o mercado público e aproveitar outros locais do Recife cheios de cultura!"</p>
                 </div>
-                <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                    <Image
-                    src="/placeholder.svg?height=320&width=500"
-                    alt="Mapa de localização"
-                    width={500}
-                    height={320}
-                    className="rounded-lg"
-                    />
+                <div className="rounded-lg overflow-hidden h-80">
+                    <iframe
+                        title="Mapa dos Mercados"
+                        src={marketData.mapDescription}
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                 </div>
                 </div>
             </section>
@@ -265,7 +264,14 @@ export function MarketPageTemplate({ marketData }) {
                         className="text-[#3154a5] text-base font-normal [font-family:'Unbouded', sans-serif] leading-normal max-w-[441px] overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]"
                         >
                         <span className="font-medium">E muito mais! </span>
-                        <span className="font-bold [font-family:'Unbouded-Bold', sans-serif]">Confira aqui </span>
+                        {/* <span className="font-bold [font-family:'Unbouded-Bold', sans-serif]">Confira aqui </span> */}
+                        <a
+                            href="/pdfs/mercado-cordeiro.pdf" // caminho para seu PDF
+                            download
+                            className="font-bold [font-family:'Unbouded-Bold', sans-serif] text-blue-700 underline"
+                            >
+                            Confira aqui <b/>
+                        </a>
                         <span className="font-medium">
                             a cartilha completa de serviços do Mercado
                         </span>
@@ -277,27 +283,7 @@ export function MarketPageTemplate({ marketData }) {
 
 
             {/* Location Section */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h2 className="text-3xl font-bold text-[#3154a5] mb-6">
-                    Mas onde
-                    <br />
-                    ficam?
-                    </h2>
-                    <p className="text-[#3154a5]">{marketData.locationDescription}</p>
-                </div>
-                <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                    <Image
-                    src="/placeholder.svg?height=320&width=500"
-                    alt="Mapa de localização detalhado"
-                    width={500}
-                    height={320}
-                    className="rounded-lg"
-                    />
-                </div>
-                </div>
-            </section>
+            <MapSection />
 
             {/* Footer */}
             <Footer />
