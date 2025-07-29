@@ -1,11 +1,16 @@
+"use client";
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ArrowRight } from "lucide-react"
+import { useEffect, useState } from "react";
 import Image from "next/image"
 import Head from 'next/head'
 import MarketCarousel from "../components/market-carousel"
 import { MarketRankingSection } from "../components/MarketRankingSection";
 import { AllMarketsSection } from "../components/AllMarketsSection";
+import { Header } from  "../components/Header";
+import { Footer } from "../components/Footer"
 import { Unbounded } from 'next/font/google';
 
 const unbounded = Unbounded({
@@ -15,41 +20,43 @@ const unbounded = Unbounded({
 });
 
 export default function HomePage() {
+    const [icons, setIcons] = useState([]);
+
+    useEffect(() => {
+        const generatedIcons = Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        top: Math.random() * 100 + "vh",
+        left: Math.random() * 100 + "vw",
+        size: Math.random() * 40 + 20, // entre 20 e 60px
+        opacity: Math.random() * 0.3 + 0.1,
+        }));
+
+        setIcons(generatedIcons);
+    }, []);
+
     return (
         <div className={unbounded.className}>
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gradient-to-br from-white to-[#DBDEEC]">
+                {/* Ícones espalhados */}
+                {/* {icons.map((icon) => (
+                    <img
+                    key={icon.id}
+                    src="/icone_marcape.svg" // substitua com seu caminho real
+                    alt=""
+                    style={{
+                        position: "absolute",
+                        top: icon.top,
+                        left: icon.left,
+                        width: `200px`,
+                        opacity: "50%",
+                        pointerEvents: "none",
+                        zIndex: 0,
+                    }}
+                    />
+                ))} */}
+
                 {/* Header */}
-                <header className="bg-white shadow-sm">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex justify-between items-center py-4">
-                            <div className="flex items-center space-x-2">
-                                 <div>
-                                    <Image
-                                        src="/Logo_mercape_completa.png"
-                                        alt="Mercados Públicos"
-                                        width={250}
-                                        height={250}
-                                        className="rounded-lg shadow-lg"
-                                    />
-                                </div>
-                            </div>
-                            <nav className="flex space-x-4">
-                                <Button variant="outline" className="text-blue-600 border-blue-600 bg-transparent">
-                                    Quem somos
-                                </Button>
-                                <Button variant="outline" className="text-blue-600 border-blue-600 bg-transparent">
-                                    Ranking
-                                </Button>
-                                <Button variant="outline" className="text-blue-600 border-blue-600 bg-transparent">
-                                    Mercados
-                                </Button>
-                                <Button variant="outline" className="text-blue-600 border-blue-600 bg-transparent">
-                                    Mapa
-                                </Button>
-                            </nav>
-                        </div>
-                    </div>
-                </header>
+                <Header />
 
                 {/* Hero Section */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -162,47 +169,8 @@ export default function HomePage() {
                 </section>
 
                 {/* Footer */}
-                <footer className="bg-blue-600 py-8">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex flex-col md:flex-row justify-between items-center">
-                            <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                                <div className="text-center">
-                                    <div className="text-center">
-                                        <Image
-                                            src="/Logo_branca_ufrpe.png"
-                                            alt="Logomarca UFRPE"
-                                            width={200}
-                                            height={200}
-                                            className="mx-auto mb-2"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                <Footer />
 
-                            <div className="text-center mb-4 md:mb-0">
-                                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mb-2 mx-auto">
-                                    <span className="text-blue-600 text-sm">@</span>
-                                </div>
-                                <p className="text-blue-100 text-sm">
-                                    Participe da Comunidade
-                                    <br />
-                                    (CGP)
-                                </p>
-                            </div>
-
-                            <div className="text-right">
-                                <p className="text-white text-mb mb-1">Responsáveis</p>
-                                <p className="text-white text-xs">
-                                    thiago.dcribeiro@ufrpe.br
-                                    <br />
-                                    joao.vsilva10@ufrpe.br
-                                    <br />
-                                    camile.alheiro@ufrpe.br
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
     )
