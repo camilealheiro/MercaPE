@@ -169,13 +169,13 @@ export function MarketPageTemplate({ marketData }) {
                 <div className="flex flex-col space-y-4 justify-center">
                     {marketData.spots?.map((item, index) => (
                         <div key={index} className="flex items-center space-x-3">
-                        <ArrowRight className="h-5 w-5 text-[#3154A5]" />
-                        <span className="text-[#3154A5]">{item}</span>
+                        <ArrowRight className="h-5 w-5 text-[#FEB511]" />
+                        <span className="text-[#FEB511]">{item}</span>
                         </div>
                     ))}
                 </div>
 
-                <div className="bg-[#3154A5] rounded-lg p-8 text-white">
+                <div className="bg-[#FEB511] rounded-lg p-8 text-white">
                     <h3 className="text-2xl font-bold mb-4">Seu roteiro de turismo com o mercado!</h3>
                     <p className="text-white leading-relaxed">{marketData.tourismText}</p>
                 </div>
@@ -186,14 +186,14 @@ export function MarketPageTemplate({ marketData }) {
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
-                    <h2 className="text-3xl font-bold text-[#3154A5] mb-6">
+                    <h2 className="text-3xl font-bold text-[#02AC4B] mb-6">
                     Como ir
                     <br />
                     para cada
                     <br />
                     local?
                     </h2>
-                    <p className="text-[#3154A5]">"Veja no nosso mapa cada ponto turístico da nossa recomendação de roteiro. Assim você pode visitar o mercado público e aproveitar outros locais do Recife cheios de cultura!"</p>
+                    <p className="text-[#02AC4B]">"Veja no nosso mapa cada ponto turístico da nossa recomendação de roteiro. Assim você pode visitar o mercado público e aproveitar outros locais do Recife cheios de cultura!"</p>
                 </div>
                 <div className="rounded-lg overflow-hidden h-80">
                     <iframe
@@ -215,7 +215,7 @@ export function MarketPageTemplate({ marketData }) {
                     
                     {/* Bloco com degradê azul e texto */}
                     <div
-                    className="w-full rounded-lg p-[60px_32px] bg-[linear-gradient(46deg,rgba(12,139,253,1)_0%,rgba(49,84,165,1)_100%)] flex flex-col justify-center"
+                    className="w-full rounded-lg p-[60px_32px] bg-gradient-to-br from-[#C44443] to-[#730C3E] flex flex-col justify-center"
                     style={{ maxWidth: "544px" }}
                     >
                     <h3
@@ -238,13 +238,13 @@ export function MarketPageTemplate({ marketData }) {
                     {marketData.services.map((service, index) => (
                         <div key={index} className="flex items-center space-x-4">
                         <div
-                            className="text-[#3154a5] text-[32px] font-extrabold [font-family:'Unbounded', sans-serif] leading-[52px]"
+                            className="text-[#C44443] text-[32px] font-extrabold [font-family:'Unbounded', sans-serif] leading-[52px]"
                             aria-hidden="true"
                         >
                             →
                         </div>
                         <span
-                            className="text-[#3154a5] text-base font-medium [font-family:'Unbouded', sans-serif] overflow-hidden text-ellipsis whitespace-nowrap"
+                            className="text-[#C44443] text-base font-medium [font-family:'Unbouded', sans-serif] overflow-hidden text-ellipsis whitespace-nowrap"
                             title={service}
                         >
                             {service}
@@ -255,13 +255,13 @@ export function MarketPageTemplate({ marketData }) {
                     {/* Texto final */}
                     <div className="flex items-center space-x-4 mt-6">
                         <div
-                        className="text-[#3154a5] text-[32px] font-extrabold [font-family:'Unbounded', sans-serif] leading-[52px]"
+                        className="text-[#C44443] text-[32px] font-extrabold [font-family:'Unbounded', sans-serif] leading-[52px]"
                         aria-hidden="true"
                         >
                         →
                         </div>
                         <p
-                        className="text-[#3154a5] text-base font-normal [font-family:'Unbouded', sans-serif] leading-normal max-w-[441px] overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]"
+                        className="text-[#C44443] text-base font-normal [font-family:'Unbouded', sans-serif] leading-normal max-w-[441px] overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]"
                         >
                         <span className="font-medium">E muito mais! </span>
                         {/* <span className="font-bold [font-family:'Unbouded-Bold', sans-serif]">Confira aqui </span> */}

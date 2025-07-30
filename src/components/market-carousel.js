@@ -90,7 +90,11 @@ export default function MarketCarousel() {
   })
 
   return (
-    <section className="bg-gradient-to-r from-[#0C8BFD] to-[#3154A5] py-16 text-white">
+    <section className="relative py-16 text-white bg-gradient-to-r from-[#0C8BFD] to-[#3154A5]" >
+      <div
+    className="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-40"
+    style={{ backgroundImage: "url(/Bandeira_de_Pernambuco.svg.png)" }}
+  ></div>
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="relative">
@@ -114,9 +118,9 @@ export default function MarketCarousel() {
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-4">
-                      <span className="text-sm font-bold text-[#3154A5]">{market.rank}</span>
-                      <h3 className="text-[#3154A5] font-semibold">{market.name}</h3>
-                      <p className="text-sm text-[#3154A5]">{market.address}</p>
+                      <span className="text-sm font-bold text-[#C44443]">{market.rank}</span>
+                      <h3 className="text-[#C44443] font-semibold">{market.name}</h3>
+                      <p className="text-sm text-[#C44443]">{market.address}</p>
                     </div>
                   </div>
                 </Link>

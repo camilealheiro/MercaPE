@@ -35,7 +35,7 @@ const boavistaData = {
     "Comidas regionais nordestinas",
   ],
   mapDescription:
-    "https://www.google.com/maps/d/u/0/embed?mid=1wHXUwki0kYthk-vdjpwF5TKgICcnA6k&ehbc=2E312F",
+    "https://www.google.com/maps/d/u/0/embed?mid=1wHXUwki0kYthk-vdjpwF5TKgICcnA6k&ehbc=2E312F&noprof=1",
 }
 
 export default function MercadoCordeiroPage() {
