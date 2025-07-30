@@ -34,7 +34,7 @@ const cordeiroData = {
     "Comidas regionais nordestinas",
   ],
   mapDescription:
-    "https://www.google.com/maps/d/u/0/embed?mid=1mBaaJ1w4vYNksO22mt62O-x160KKBiU&ehbc=2E312F",
+    "https://www.google.com/maps/d/u/0/embed?mid=1mBaaJ1w4vYNksO22mt62O-x160KKBiU&ehbc=2E312F&noprof=1",
   // locationDescription:
   //   ,
 }

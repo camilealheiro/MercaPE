@@ -72,16 +72,16 @@ export default function HomePage() {
                             />
                         </div>
                         <div>
-                            <h1 className="text-4xl lg:text-5xl font-bold text-[#3154A5] mb-6">
+                            <h1 className="text-4xl lg:text-5xl font-bold text-[#02AC4B] mb-6">
                                 Mercados
                                 <br />
                                 Públicos
                             </h1>
-                            <p className="text-[#3154A5] mb-4">
+                            <p className="text-[#02AC4B] mb-4">
                                 Nossa Solução visa um novo olhar sobre os Mercados Públicos do Recife. São locais que carregam consigo
                                 histórias e muita cultura da nossa região em seus produtos e pessoas presentes lá.
                             </p>
-                            <p className="text-[#3154A5]">
+                            <p className="text-[#02AC4B]">
                                 Além de movimentarem o comércio são atrações turísticas vivas que merecem destaque no seu roteiro de
                                 viagem!
                             </p>
@@ -90,7 +90,7 @@ export default function HomePage() {
                 </section>
 
                 {/* Quem nós somos Section */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <section id="QuemSomos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h2 className="text-3xl font-bold text-[#3154A5] mb-8">Quem nós somos?</h2>
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                         <div className="lg:col-span-3">
@@ -115,14 +115,14 @@ export default function HomePage() {
                 </section>
 
                 {/* Ranking Section */}
-                <section>
+                <section id="RankingSection">
                     <MarketRankingSection />
                 </section>
 
                 {/* Todos os mercados Section */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    <h2 className="text-3xl font-bold text-[#3154A5] mb-4">Todos os mercados</h2>
-                    <p className="text-[#3154A5] mb-12">
+                <section id="AllMarkets" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                    <h2 className="text-3xl font-bold text-[#C44443] mb-4">Todos os mercados</h2>
+                    <p className="text-[#C44443] mb-12">
                         Os mercados públicos da região metropolitana do Recife. Você encontra todos aqui!
                     </p>
 
@@ -131,8 +131,10 @@ export default function HomePage() {
                 </section>
 
                 {/* Map Section */}
-                <MapSection />
-
+                <section id="MapSection">
+                    <MapSection />
+                </section>
+                
                 {/* Footer */}
                 <Footer />
 
